@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #a10023;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #000000 3px solid;
+            text-align: center;
+        }
+        header a {
+            color: #000000;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        .cardapio {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .categoria {
+            margin-bottom: 20px;
+        }
+        .categoria h2 {
+            background: #b60303;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .descricao {
+            font-size: 0.9em;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .quantidade {
+            width: 50px;
+        }
+        .carrinho {
+            margin-top: 20px;
+        }
+        .carrinho table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .carrinho th, .carrinho td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .carrinho th {
+            background: #a10023;
+            color: #fff;
+        }
+        .total {
+            text-align: right;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        .finalizar {
+            background: #f80000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 1em;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .finalizar:hover {
+            background: #555;
+        }
+        .pagamento {
+            margin-top: 20px;
+        }
+        .pagamento label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .endereco {
+            margin-top: 20px;
+        }
+        .endereco label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .endereco textarea {
+            width: 90%;
+            height: 30px;
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cardápio Digital - IFruit</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="cardapio">
+            <div class="categoria">
+                <h2>Hambúrgueres</h2>
+                <div class="item">
+                    <input type="checkbox" id="burger1" data-preco="12.00">
+                    <label for="burger1">Cheeseburger Vegetariano - R$12,00
+                        <span class="descricao">Pão, beringela empanada, queijo, alface, tomate e molho especial.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-burger1" min="1" value="1" disabled>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="burger2" data-preco="15.00">
+                    <label for="burger2">Hambúrguer Vegetariano - R$15,00
+                        <span class="descricao">Pão, tofu, alface, tomate e molho especial.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-burger2" min="1" value="1" disabled>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="burger3" data-preco="11.00">
+                    <label for="burger3">Hambúrguer Salada - R$11,00
+                        <span class="descricao">Pão, alface, tomate e molho especial.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-burger3" min="1" value="1" disabled>
+                </div>
+            </div>
+            <div class="categoria">
+                <h2>Salgados</h2>
+                <div class="item">
+                    <input type="checkbox" id="salgado1" data-preco="5.00">
+                    <label for="salgado1">Coxinha de Tucumã - R$10,00
+                        <span class="descricao">Coxinha feita com recheio de tucumã.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-salgado1" min="1" value="1" disabled>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="salgado2" data-preco="4.00">
+                    <label for="salgado2">Esfirra de pêssego - R$10,00
+                        <span class="descricao">Esfirra feita com recheio de pêssego.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-salgado2" min="1" value="1" disabled>
+                </div>
+            </div>
+            <div class="categoria">
+                <h2>Bebidas</h2>
+                <div class="item">
+                    <input type="checkbox" id="bebida1" data-preco="3.00">
+                    <label for="bebida1">Refrigerante - R$3,00
+                        <span class="descricao">Lata de refrigerante de 350ml.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-bebida1" min="1" value="1" disabled>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="bebida2" data-preco="2.50">
+                    <label for="bebida2">Água - R$2,50
+                        <span class="descricao">Garrafa de água mineral de 500ml.</span>
+                    </label>
+                    <input type="number" class="quantidade" id="quantidade-bebida2" min="1" value="1" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="carrinho">
+            <h2>Carrinho de Compras</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody id="carrinho-itens">
+                </tbody>
+            </table>
+            <div class="total">
+                Total: R$<span id="total">0.00</span>
+            </div>
+            <div class="pagamento">
+                <h3>Forma de Pagamento</h3>
+                <label>
+                    <input type="radio" name="pagamento" value="dinheiro"> Dinheiro
+                </label>
+                <label>
+                    <input type="radio" name="pagamento" value="pix"> PIX
+                </label>
+                <label>
+                    <input type="radio" name="pagamento" value="cartao"> Débito/Crédito
+                </label>
+            </div>
+            <div class="endereco">
+                <h3>Endereço de Entrega</h3>
+                <label for="endereco">Endereço:</label>
+                <textarea id="endereco" name="endereco" placeholder="Digite seu endereço"></textarea>
+            </div>
+            <button class="finalizar">Finalizar Pedido</button>
+            <button class="finalizar">Cancelar Pedido</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const carrinhoItens = document.getElementById('carrinho-itens');
+            const totalSpan = document.getElementById('total');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const quantidadeInput = document.getElementById('quantidade-' + checkbox.id);
+                    if (checkbox.checked) {
+                        quantidadeInput.disabled = false;
+                    } else {
+                        quantidadeInput.disabled = true;
+                        quantidadeInput.value = 1;
+                    }
+                    atualizarCarrinho();
+                });
+            });
+
+            function atualizarCarrinho() {
+                carrinhoItens.innerHTML = '';
+                let total = 0;
+
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const quantidadeInput = document.getElementById('quantidade-' + checkbox.id);
+                        const quantidade = quantidadeInput.value;
+                        const preco = checkbox.getAttribute('data-preco');
+                        const itemNome = checkbox.nextElementSibling.textContent.split('-')[0].trim();
+                        const itemTotal = quantidade * preco;
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${itemNome}</td>
+                            <td>${quantidade}</td>
+                            <td>R$${itemTotal.toFixed(2)}</td>
+                        `;
+
+                        carrinhoItens.appendChild(row);
+
+                        total += itemTotal;
+                    }
+                });
+
+                totalSpan.textContent = total.toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>
